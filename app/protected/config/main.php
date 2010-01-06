@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(dirname(__FILE__)),
-	'name'=>'Yii Blog Demo Extended',
+	'name'=>'Yii Blog Demo',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
