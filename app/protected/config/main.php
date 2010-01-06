@@ -37,6 +37,7 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=blog',
 			'emulatePrepare' => true,
+      'schemaCachingDuration' => 3600,
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',

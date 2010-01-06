@@ -33,6 +33,8 @@ $config['components']['log']['routes'][] = array(
 );
 $config['components']['db']['enableProfiling'] = true;
 $config['components']['db']['enableParamLogging'] = true;
-unset($config['components']['cache']); # also turns off schema-caching
+
+unset($config['components']['cache']); # turn off caching
+unset($config['components']['db']['schemaCachingDuration']); # turn off schema caching
 
 return $config;
