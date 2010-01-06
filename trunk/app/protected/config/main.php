@@ -29,6 +29,9 @@ return array(
 		'db'=>array(
 			'connectionString' => 'sqlite:protected/data/blog.db',
 		),
+    'cache'=>array(
+      'class'=>'system.caching.CFileCache',
+    ),
 		// uncomment the following to use a MySQL database
 		/*
 		'db'=>array(
@@ -44,6 +47,7 @@ return array(
             'errorAction'=>'site/error',
         ),
         'urlManager'=>array(
+          'showScriptName'=>false,
         	'urlFormat'=>'path',
         	'rules'=>array(
         		'post/<id:\d+>/<title:.*?>'=>'post/view',
