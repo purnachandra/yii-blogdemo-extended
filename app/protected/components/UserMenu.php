@@ -1,8 +1,6 @@
 <?php
 
-Yii::import('zii.widgets.CPortlet');
-
-class UserMenu extends CPortlet
+class UserMenu extends Portlet
 {
 	public function init()
 	{

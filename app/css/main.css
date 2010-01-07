@@ -189,8 +189,9 @@ div.breadcrumbs span
 	border-left: 5px solid #6FACCF;
 }
 
-.portlet-decoration h2
+.portlet-decoration span
 {
+  display: block;
 	font-size: 12px;
 	font-weight: bold;
 	padding: 0;

@@ -1,8 +1,6 @@
 <?php
 
-Yii::import('zii.widgets.CPortlet');
-
-class TagCloud extends CPortlet
+class TagCloud extends Portlet
 {
 	public $title='Tags';
 	public $maxTags=20;
