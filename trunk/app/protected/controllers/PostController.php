@@ -2,7 +2,6 @@
 
 class PostController extends Controller
 {
-	const PAGE_SIZE=10;
 	public $layout='column2';
 
 	/**
@@ -28,12 +27,11 @@ class PostController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users
+			array('allow',  // allow all users to access 'index' and 'view' actions.
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated users
-				'actions'=>array('create','update','admin','delete','suggestTags'),
+			array('allow', // allow authenticated users to access all actions
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -128,7 +126,7 @@ class PostController extends Controller
 
 		$dataProvider=new CActiveDataProvider('Post', array(
 			'pagination'=>array(
-				'pageSize'=>self::PAGE_SIZE,
+				'pageSize'=>Yii::app()->params['postsPerPage'],
 			),
 			'criteria'=>$criteria,
 		));
@@ -144,9 +142,6 @@ class PostController extends Controller
 	public function actionAdmin()
 	{
 		$dataProvider=new CActiveDataProvider('Post', array(
-			'pagination'=>array(
-				'pageSize'=>self::PAGE_SIZE,
-			),
 			'sort'=>array(
 				'defaultOrder'=>'status, update_time DESC',
 			),
@@ -182,7 +177,7 @@ class PostController extends Controller
 			if(isset($_GET['id']))
 			{
 				if(Yii::app()->user->isGuest)
-					$condition='status='.Post::STATUS_PUBLISHED;
+					$condition='status='.Post::STATUS_PUBLISHED.' OR status='.POST::STATUS_ARCHIVED;
 				else
 					$condition='';
 				$this->_model=Post::model()->findbyPk($_GET['id'], $condition);
@@ -210,12 +205,8 @@ class PostController extends Controller
 			if($post->addComment($comment))
 			{
 				if($comment->status==Comment::STATUS_PENDING)
-				{
 					Yii::app()->user->setFlash('commentSubmitted','Thank you for your comment. Your comment will be posted once it is approved.');
-					$this->refresh();
-				}
-				else
-					$this->redirect($comment->getUrl($post));
+				$this->refresh();
 			}
 		}
 		return $comment;
