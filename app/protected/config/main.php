@@ -28,33 +28,36 @@ return array(
 		),
 		'db'=>array(
 			'connectionString' => 'sqlite:protected/data/blog.db',
+			'tablePrefix' => 'tbl_',
+
 		),
-    'cache'=>array(
-      'class'=>'system.caching.CFileCache',
-    ),
+		'cache'=>array(
+			'class'=>'system.caching.CFileCache',
+		),
 		// uncomment the following to use a MySQL database
 		/*
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=blog',
 			'emulatePrepare' => true,
-      'schemaCachingDuration' => 3600,
+			'schemaCachingDuration' => 3600,
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
+			'tablePrefix' => 'tbl_',
 		),
 		*/
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
-            'errorAction'=>'site/error',
-        ),
-        'urlManager'=>array(
-          'showScriptName'=>false,
-        	'urlFormat'=>'path',
-        	'rules'=>array(
-        		'post/<id:\d+>/<title:.*?>'=>'post/view',
-        		'posts/<tag:.*?>'=>'post/index',
-        	),
-        ),
+			'errorAction'=>'site/error',
+		),
+		'urlManager'=>array(
+			'showScriptName'=>false,
+			'urlFormat'=>'path',
+			'rules'=>array(
+			'post/<id:\d+>/<title:.*?>'=>'post/view',
+			'posts/<tag:.*?>'=>'post/index',
+			),
+		),
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
