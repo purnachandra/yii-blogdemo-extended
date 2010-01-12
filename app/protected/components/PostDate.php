@@ -1,7 +1,7 @@
 <?php
   // @version $Id$
-Yii::import('zii.widgets.CPortlet');
-class PostDate extends CPortlet {
+
+class PostDate extends Portlet {
   public $cssClass='postdate';
   public $ct;
  
