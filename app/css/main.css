@@ -297,3 +297,23 @@ div.breadcrumbs span
 {
 	color:red;
 }
+
+.postdate-portlet
+{
+	text-align: center;
+}
+
+.postdate-portlet .portlet-content
+{
+	margin-bottom: 0;
+}
+
+.title table
+{
+	margin-bottom: 0;
+}
+
+.title td
+{
+	padding: 4px 10px 4px 0px;
+}
