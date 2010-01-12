@@ -9,6 +9,6 @@ class PostDate extends Portlet {
   {
     echo "<font size=\"3\">\n";
     print $this->ct;
-    echo "</center>\n";
+    echo "</font>\n";
   }
 }
