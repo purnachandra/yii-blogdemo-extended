@@ -1,6 +1,15 @@
 <div class="post">
 	<div class="title">
-		<?php echo CHtml::link(CHtml::encode($data->title), $data->url); ?>
+		<table>
+		    <tr>
+		        <td>
+		            <?php $c = 9 - strlen(date('F', $data->create_time)); $p = str_repeat('\&\n\b\s\p\;', $c); ?>
+			    <?php $this->widget('PostDate', array('ct'=>date($p.'F'.$p.'<\b\r>j', $data->create_time))); ?>
+			</td>
+			<td>&nbsp;<?php echo CHtml::link(CHtml::encode($data->title), $data->url); ?>
+			</td>
+		    </tr>
+		</table>
 	</div>
 	<div class="author">
 		posted by <?php echo $data->author->username . ' on ' . date('F j, Y',$data->create_time); ?>

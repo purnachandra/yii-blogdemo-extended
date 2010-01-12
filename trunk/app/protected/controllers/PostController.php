@@ -211,4 +211,104 @@ class PostController extends Controller
 		}
 		return $comment;
 	}
+
+	/**
+         * Sitewide search.
+         * Shows a particular post searched.
+         */
+        public function actionSearch()
+        {
+		$search = new SiteSearchForm;
+                
+		if(isset($_POST['SiteSearchForm'])) {
+			$search->attributes = $_POST['SiteSearchForm'];
+			$_GET['searchString'] = $search->string;
+		} else {
+			$search->string = $_GET['searchString'];
+		}
+		
+		$criteria = new CDbCriteria(array(
+			'condition' => 'status='.Post::STATUS_PUBLISHED.' AND content LIKE :keyword',
+			'order' => 'create_time DESC',
+			'params' => array(
+				':keyword' => '%'.$search->string.'%',
+			),
+		));
+                
+		$postCount = Post::model()->count($criteria);
+		$pages = new CPagination($postCount);
+		$pages->pageSize = Yii::app()->params['postsPerPage'];
+		$pages->applyLimit($criteria);
+                
+		$posts = Post::model()->findAll($criteria);
+						    
+		$this->render('found',array(
+			'posts' => $posts,
+			'pages' => $pages,
+			'search' => $search,
+		));
+
+        }
+
+        /**                                                                                                     
+         * Collect posts issued on specific date                                                                
+         */
+        public function actionPostedOnDate()
+        {
+		$month = date('n', $_GET['time']);
+		$date = date('j', $_GET['time']);
+		$year = date('Y', $_GET['time']);
+
+		$criteria = new CDbCriteria(array(
+			'condition' => 'status='.Post::STATUS_PUBLISHED.' AND create_time > :time1 AND create_time < :time2',
+			'order' => 'update_time DESC',
+			'params' => array(
+				':time1' => ($theDay = mktime(0,0,0,$month,$date,$year)),
+				':time2' => mktime(0,0,0,$month,$date+1,$year)),
+		));
+
+		$pages = new CPagination(Post::model()->count($criteria));
+		$pages->pageSize = Yii::app()->params['postsPerPage'];
+		$pages->applyLimit($criteria);
+
+		$posts = Post::model()->with('author')->findAll($criteria);
+
+		$this->render('date',array(
+			'posts' => $posts,
+                        'pages' => $pages,
+                        'theDay' => $theDay,
+		));
+        }
+
+	/**
+         * Collect posts issued in specific month
+         */
+        public function actionPostedInMonth()
+        {
+		$month = date('n', $_GET['time']);
+		$year = date('Y', $_GET['time']);
+		if ($_GET['pnc'] == 'n') $month++;
+		if ($_GET['pnc'] == 'p') $month--;
+
+		$criteria = new CDbCriteria(array(
+			'condition' => 'status = '.Post::STATUS_PUBLISHED.' AND create_time > :time1 AND create_time < :time2',
+			'order' => 'update_time DESC',
+			'params' => array(
+				':time1' => ($firstDay = mktime(0,0,0,$month,1,$year)),
+				':time2' => mktime(0,0,0,$month+1,1,$year)),
+		));
+
+		$pages = new CPagination(Post::model()-> count($criteria));
+		$pages->pageSize = Yii::app()->params['postsPerPage'];
+		$pages->applyLimit($criteria);
+
+		$posts = Post::model()->with('author')->findAll($criteria);
+
+		$this->render('month',array(
+			'posts' => $posts,
+			'pages' => $pages,
+			'firstDay' => $firstDay,
+		));
+        }
+
 }
