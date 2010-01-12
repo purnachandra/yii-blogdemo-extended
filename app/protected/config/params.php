@@ -8,6 +8,8 @@ return array(
 	'adminEmail'=>'webmaster@example.com',
 	// number of posts displayed per page
 	'postsPerPage'=>10,
+	// maximum number of posts that can be displayed in recent posts portlet
+	'recentPostCount'=>10,
 	// maximum number of comments that can be displayed in recent comments portlet
 	'recentCommentCount'=>10,
 	// maximum number of tags that can be displayed in tag cloud portlet
