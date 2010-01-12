@@ -7,8 +7,8 @@ class PostDate extends Portlet {
  
   protected function renderContent()
   {
-    echo "<center><font size=\"3\">\n";
+    echo "<font size=\"3\">\n";
     print $this->ct;
-    echo "</font></center>\n";
+    echo "</center>\n";
   }
 }

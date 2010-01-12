@@ -2,7 +2,7 @@
 	<div class="title">
 		<table>
 		    <tr>
-		        <td>
+		        <td class="span-2">
 		            <?php $c = 9 - strlen(date('F', $data->create_time)); $p = str_repeat('\&\n\b\s\p\;', $c); ?>
 			    <?php $this->widget('PostDate', array('ct'=>date($p.'F'.$p.'<\b\r>j', $data->create_time))); ?>
 			</td>
