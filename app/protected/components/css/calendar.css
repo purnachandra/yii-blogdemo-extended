@@ -56,4 +56,5 @@ ul.Calendar caption
 ul.Calendar .calendar-month
 {
 	padding: 5px 0px;
+	text-align: center;
 }
