@@ -11,7 +11,9 @@
 
 			<?php $this->widget('Calendar'); ?>
 
-			<?php $this->widget('MonthlyArchives'); ?>
+			<?php $this->widget('MonthlyArchives', array(
+				'maxItems'=>Yii::app()->params['monthlyArchivesCount'],
+			)); ?>
 
 			<?php $this->widget('SiteSearch'); ?>
 
