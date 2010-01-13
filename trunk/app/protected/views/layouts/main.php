@@ -15,6 +15,21 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+<?php
+ // javascript
+	$cs=Yii::app()->clientScript;
+	$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/persist.js', CClientScript::POS_HEAD);
+	$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.clipboard-2.0.1/jquery.clipboard.js', CClientScript::POS_HEAD);
+	$params = array(
+                'BASEURL'=>Yii::app()->request->baseUrl,
+                'HTTPHOST'=>$_SERVER['HTTP_HOST']
+		);
+	$script = 'var PARAMS = eval('.CJavaScript::jsonEncode($params).');';
+	$cs->registerScript('widget-oc1', $script, CClientScript::POS_BEGIN);
+	$script = implode('',file(Yii::app()->basePath.'/../js/widget-oc.min.js'));
+	$cs->registerScript('widget-oc2', $script, CClientScript::POS_READY);
+?>
+
 </head>
 
 <body>
