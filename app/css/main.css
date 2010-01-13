@@ -306,6 +306,7 @@ div.breadcrumbs span
 .postdate-portlet .portlet-content
 {
 	margin-bottom: 0;
+	padding: 4px;
 }
 
 .title table
@@ -315,5 +316,5 @@ div.breadcrumbs span
 
 .title td
 {
-	padding: 4px 10px 4px 0px;
+	padding: 4px 4px 4px 0px;
 }
