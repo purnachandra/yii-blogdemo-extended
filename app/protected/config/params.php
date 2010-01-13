@@ -12,6 +12,8 @@ return array(
 	'recentPostCount'=>10,
 	// maximum number of comments that can be displayed in recent comments portlet
 	'recentCommentCount'=>10,
+	// maximum number of items that can be displayed in monthly archives portlet
+	'monthlyArchivesCount'=>10,
 	// maximum number of tags that can be displayed in tag cloud portlet
 	'tagCloudCount'=>20,
 	// whether post comments need to be approved before published
