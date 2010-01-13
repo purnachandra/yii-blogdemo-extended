@@ -33,13 +33,27 @@ ul.Calendar a:hover
 	border:solid 1px #0e509e;
 }
 
-ul.Calendar td
-{
-	text-align: center;
-}
-
 ul.Calendar #today
 {
 	color:#990000;
 	font-weight: bold;
+}
+
+ul.Calendar table
+{
+	margin-bottom: 0px;
+	width: 87%;
+}
+
+ul.Calendar th,
+ul.Calendar td,
+ul.Calendar caption
+{
+	text-align: center;
+	padding: 4px 0px;
+}
+
+ul.Calendar .calendar-month
+{
+	padding: 5px 0px;
 }
