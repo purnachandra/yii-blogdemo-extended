@@ -15,7 +15,7 @@
 	</div>
 	<div class="content">
 		<?php
-			$this->beginWidget('CMarkdown', array('purifyOutput'=>true));
+			$this->beginWidget('Markdown', array('purifyOutput'=>true));
 			echo $data->content;
 			$this->endWidget();
 		?>

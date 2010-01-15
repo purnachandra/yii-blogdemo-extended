@@ -20,4 +20,12 @@ return array(
 	'commentNeedApproval'=>true,
 	// the copyright information displayed in the footer section
 	'copyrightInfo'=>'Copyright &copy; 2009 by My Company.',
+        // configurations for highslide extension
+        'imageHome'=>'images/',
+        'imageHomeAbs'=>dirname(__FILE__).'/../../images/',
+        'imageBoundingbox'=>'240',
+        'imageParams'=>'style="float:left;margin:5px;"',
+        'imageThumbnailBoundingBox'=>'120',
+        'maxImageSize'=>512*1024, // 512KByte
+        'profileImageBoundingbox'=>'60',
 );

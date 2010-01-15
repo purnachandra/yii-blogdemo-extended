@@ -18,6 +18,9 @@
 <?php
  // javascript
 	$cs=Yii::app()->clientScript;
+	$cs->registerCoreScript('jquery');
+	$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.js', CClientScript::POS_HEAD);
+	$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/highslide/highslide_eh.js', CClientScript::POS_HEAD);
 	$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/persist.js', CClientScript::POS_HEAD);
 	$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.clipboard-2.0.1/jquery.clipboard.js', CClientScript::POS_HEAD);
 	$params = array(
@@ -28,6 +31,14 @@
 	$cs->registerScript('widget-oc1', $script, CClientScript::POS_BEGIN);
 	$script = implode('',file(Yii::app()->basePath.'/../js/widget-oc.min.js'));
 	$cs->registerScript('widget-oc2', $script, CClientScript::POS_READY);
+	$script = 'hs.graphicsDir = PARAMS.BASEURL+\'/js/highslide/graphics/\';'."\n";
+	$script .= 'hs.outlineType = \'rounded-white\';'."\n";
+	$script .= 'hs.showCredits = false;';
+	$cs->registerScript('hislide-middle', $script, CClientScript::POS_BEGIN);
+	$script = 'addHighSlideAttribute();';
+	$cs->registerScript('hislide-end', $script, CClientScript::POS_END);
+// css
+	$cs->registerCSSFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.css');
 ?>
 
 </head>
