@@ -11,4 +11,15 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+  
+  /**
+   * Disables any active CWebLogRoute instances
+   * (used during AJAX actions, to prevent output)
+   */
+  protected function disableWebLogRoutes()
+  {
+    foreach (Yii::app()->log->routes as $route)
+    if ($route instanceof CWebLogRoute)
+      $route->enabled = false;
+  }
 }
