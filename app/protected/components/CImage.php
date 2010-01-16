@@ -159,10 +159,16 @@ class CImage extends CComponent
    * Some image data (either left/right sides or top/bottom edges) will
    * be discarded by applying this operation.
    *
+   * If you specify the optional X and Y center coordinates of the subject
+   * in the image, cropping will be centered as closely as possible to
+   * that point.
+   * 
    * @param int exact width in pixels.
    * @param int exact height in pixels.
+   * @param int optional, subject location (range: 0..1 ~ left..right)
+   * @param int optional, subject location (range: 0..1 ~ top..bottom)
    */
-	public function crop($max_w, $max_h) {
+	public function crop($max_w, $max_h, $center_x=0.5, $center_y=0.5) {
 		$w = $this->getWidth();
 		$h = $this->getHeight();
 		
@@ -175,7 +181,7 @@ class CImage extends CComponent
 			$crop_h = round($w * $dest_aspect);
 			$crop_w = $w;
 			$crop_left = 0;
-			$crop_top = round(0.5 * ($h - $crop_h));
+			$crop_top = round($center_y * ($h - $crop_h));
 		}
     else # if ($dest_aspect > $src_aspect)
     { 
@@ -183,7 +189,7 @@ class CImage extends CComponent
 			$crop_h = $h;
 			$crop_w = round($h / $dest_aspect);
 			$crop_top = 0;
-			$crop_left = round(0.5 * ($w - $crop_w));
+			$crop_left = round($center_x * ($w - $crop_w));
 		}
 		
 		$w = $max_w;
@@ -272,12 +278,7 @@ class CImage extends CComponent
   public function saveJPEG($path, $quality=null)
   {
     if (!isset($quality))
-    {
-      if (isset(Yii::app()->params['CImageJPEGQuality']))
-        $quality = Yii::app()->params['CImageJPEGQuality']
-      else
-        $quality = 85;
-    }
+      $quality = isset(Yii::app()->params['CImageJPEGQuality']) ? Yii::app()->params['CImageJPEGQuality'] : 85;
     return @imagejpeg(
       $this->_handle,
       $path,
@@ -418,7 +419,7 @@ class CImageFile extends CImage
    */
   public function saveJPEG($path, $quality=null)
   {
-    return parent::save($path, $quality);
+    return parent::saveJPEG($path, $quality);
     $this->_path = $path;
   }
   
