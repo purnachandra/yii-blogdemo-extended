@@ -28,4 +28,6 @@ return array(
         'imageThumbnailBoundingBox'=>'120',
         'maxImageSize'=>512*1024, // 512KByte
         'profileImageBoundingbox'=>'60',
+  // default JPEG quality for CImage
+  'CImageJPEGQuality' => 90,
 );

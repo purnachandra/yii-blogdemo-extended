@@ -267,10 +267,17 @@ class CImage extends CComponent
   /**
    * Saves the current image to a JPEG file with the given path.
    * @param string the path of the file to create.
-   * @param int the JPEG compression quality - an integer between 1 (poor quality, small file) and 100 (high quality, large file).
+   * @param int optional, the JPEG compression quality - an integer between 1 (poor quality, small file) and 100 (high quality, large file). If null (default), 'CImageJPEGQuality' will be used, if defined in Yii::app()->params.
    */
-  public function save($path, $quality=85)
+  public function saveJPEG($path, $quality=null)
   {
+    if (!isset($quality))
+    {
+      if (isset(Yii::app()->params['CImageJPEGQuality']))
+        $quality = Yii::app()->params['CImageJPEGQuality']
+      else
+        $quality = 85;
+    }
     return @imagejpeg(
       $this->_handle,
       $path,
@@ -407,9 +414,9 @@ class CImageFile extends CImage
   /**
    * Saves the current image to a JPEG file with the given path.
    * @param string the path of the file to create.
-   * @param int the JPEG compression quality - an integer between 1 (poor quality, small file) and 100 (high quality, large file).
+   * @param int optional, the JPEG compression quality - an integer between 1 (poor quality, small file) and 100 (high quality, large file). If null (default), 'CImageJPEGQuality' will be used, if defined in Yii::app()->params.
    */
-  public function save($path, $quality=85)
+  public function saveJPEG($path, $quality=null)
   {
     return parent::save($path, $quality);
     $this->_path = $path;
