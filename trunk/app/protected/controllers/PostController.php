@@ -158,6 +158,7 @@ class PostController extends Controller
 	 */
 	public function actionSuggestTags()
 	{
+    $this->disableWebLogRoutes();
 		if(isset($_GET['q']) && ($keyword=trim($_GET['q']))!=='')
 		{
 			$tags=Tag::model()->suggestTags($keyword);
