@@ -10,6 +10,7 @@ require_once($yii);
 // quick hacky test:
 
 require 'protected/components/CImage.php';
+require 'protected/components/CImageFile.php';
 
 $input = 'protected/images/test.jpg';
 $output = 'protected/images/resized.jpg';
@@ -18,7 +19,7 @@ $output = 'protected/images/resized.jpg';
 
 $test = CImageFile::load($input);
 
-$test->crop(128,128,0.3);
+$test->crop(128,128,0.45);
 $test->saveJPEG($output);
 
 header('Content-type: image/jpeg');
