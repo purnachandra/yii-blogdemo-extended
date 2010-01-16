@@ -97,6 +97,6 @@ class User extends CActiveRecord
 	 */
 	protected function generateSalt()
 	{
-		return md5(microtime());
+		return uniqid('',true);
 	}
 }
