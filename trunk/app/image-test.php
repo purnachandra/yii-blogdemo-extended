@@ -18,8 +18,8 @@ $output = 'protected/images/resized.jpg';
 
 $test = CImageFile::load($input);
 
-$test->fit(200,200);
-$test->save($output);
+$test->crop(128,128,0.3);
+$test->saveJPEG($output);
 
 header('Content-type: image/jpeg');
 readfile($output);
