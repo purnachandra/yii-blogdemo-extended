@@ -59,6 +59,17 @@ return array(
 			'posts/<tag:.*?>'=>'post/index',
 			),
 		),
+    'images'=>array(
+      'class'=>'CImageManager',
+      'collections'=>array(
+        'full' => 'images/full',
+      ),
+      'transforms'=>array(
+        'thumbnail' => array(
+          'crop' => array(160,160),
+        ),
+      ),
+    ),
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(

@@ -125,6 +125,21 @@ class CImageFile extends CImage
   }
   
   /**
+   * This magic method overloads configured image transformations as methods.
+   * Transformations are defined by the CImageManager application component.
+   * @return CImage with the named transformation applied.
+   */
+  public function __call($name, $params)
+  {
+    // note: this is currently hardcoded to expect the application component
+    // to be configured with the name "images" - this may not be the optimal
+    // way to do this.
+    $transform = Yii::app()->images->getTransform($name);
+    $transform->apply($this);
+    return $this;
+  }
+  
+  /**
    * Saves the current image to a JPEG file with the given path.
    * @param string the path of the file to create.
    * @param int optional, the JPEG compression quality - an integer between 1 (poor quality, small file) and 100 (high quality, large file). If null (default), 'CImageJPEGQuality' will be used, if defined in Yii::app()->params.
