@@ -34,7 +34,10 @@
  * thumbnail version of an image named "rasmus.jpg", you would call:
  *
  * <pre>
- * Yii::app()->images->faces->thumbnail('rasmus.jpg');
+ * // load an image from the collection named 'faces':
+ * $image = Yii::app()->images->faces->load('rasmus.jpg');
+ * // apply the transformation named 'thumbnail' and save:
+ * $image->thumbnail()->saveJPEG('thumbs/rasmus.jpg');
  * </pre>
  */
 class CImageManager extends CApplicationComponent
