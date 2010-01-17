@@ -15,7 +15,6 @@
  *    ),
  *    'transforms'=>array(
  *      'thumbnail' => array(
- *        'targetPath' => 'images/faces/thumbs',
  *        'crop' => array(128,128),
  *      ),
  *    ),

@@ -15,6 +15,6 @@ class ImageController extends Controller
     // apply the transformation named 'thumbnail' and save the image:
     $image->thumbnail()->saveJPEG('images/thumbs/'.$name);
     
-    echo '<img src="/images/thumbs/'.$name.'"/>';
+    echo '<img src="/images/thumbs/'.$name.'" width="'.$image->width.'" height="'.$image->height.'"/>';
   }
 }
