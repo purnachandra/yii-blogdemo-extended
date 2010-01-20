@@ -49,6 +49,8 @@ class Post extends CActiveRecord
 			array('title', 'length', 'max'=>128),
 			array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Tags can only contain word characters.'),
 			array('tags', 'normalizeTags'),
+
+			array('title, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -216,4 +218,27 @@ class Post extends CActiveRecord
 			'order'=>'t.create_time DESC',
 		));
         }
+
+	/**
+	 * Retrieves the list of posts based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the needed posts.
+	 */
+	public function search()
+	{
+		$criteria=new CDbCriteria;
+		if($this->title!='')
+			$criteria->addSearchCondition('title',$this->title);
+		if($this->status!='')
+		{
+			$criteria->addCondition("status=:status");
+			$criteria->params[":status"]=$this->status;
+		}
+		$dataProvider=new CActiveDataProvider('Post', array(
+			'criteria'=>$criteria,
+			'sort'=>array(
+				'defaultOrder'=>'status, update_time DESC',
+			),
+		));
+		return $dataProvider;
+	}
 }
