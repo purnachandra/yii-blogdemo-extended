@@ -226,19 +226,16 @@ class Post extends CActiveRecord
 	public function search()
 	{
 		$criteria=new CDbCriteria;
-		if($this->title!='')
-			$criteria->addSearchCondition('title',$this->title);
-		if($this->status!='')
-		{
-			$criteria->addCondition("status=:status");
-			$criteria->params[":status"]=$this->status;
-		}
-		$dataProvider=new CActiveDataProvider('Post', array(
+
+		$criteria->compare('title',$this->title,true);
+
+		$criteria->compare('status',$this->status);
+
+		return new CActiveDataProvider('Post', array(
 			'criteria'=>$criteria,
 			'sort'=>array(
 				'defaultOrder'=>'status, update_time DESC',
 			),
 		));
-		return $dataProvider;
 	}
 }
