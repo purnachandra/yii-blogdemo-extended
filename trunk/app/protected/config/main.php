@@ -82,16 +82,6 @@ return array(
 			'enable'=>true,
 		),
 
-
-		'widgetCollapse'=>array(
-			'class'=>'WidgetCollapse',
-			'enable'=>true,
-		),
-		'highslide'=>array(
-			'class'=>'Highslide',
-			'enable'=>true,
-		),
-
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
