@@ -15,12 +15,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-<?php
- // javascript
-	// $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.clipboard-2.0.1/jquery.clipboard.js', CClientScript::POS_HEAD);
-// css
-?>
-
 </head>
 
 <body>
@@ -29,7 +23,7 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?>
-			<div id="rss"><?php echo CHtml::link(CHtml::image(Yii::app()->createUrl('/images/feed.gif')),'rss.xml'); ?></div>
+			<div id="rss"><?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl.'/systemImages/feed.gif'),Yii::app()->request->baseUrl.'/rss.xml'); ?></div>
 		</div>
 	</div><!-- header -->
 
