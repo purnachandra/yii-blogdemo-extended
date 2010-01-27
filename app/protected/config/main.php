@@ -55,22 +55,23 @@ return array(
 			'showScriptName'=>false,
 			'urlFormat'=>'path',
 			'rules'=>array(
-			'post/<id:\d+>/<title:.*?>'=>'post/view',
-			'posts/<tag:.*?>'=>'post/index',
-			'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'post/<id:\d+>/<title:.*?>'=>'post/view',
+				'posts/<tag:.*?>'=>'post/index',
+				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'rss.xml'=>'site/feed',
 			),
 		),
-    'images'=>array(
-      'class'=>'CImageManager',
-      'collections'=>array(
-        'full' => 'images/full',
-      ),
-      'transforms'=>array(
-        'thumbnail' => array(
-          'crop' => array(160,160),
-        ),
-      ),
-    ),
+		'images'=>array(
+			'class'=>'CImageManager',
+			'collections'=>array(
+				'full' => 'images/full',
+			),
+			'transforms'=>array(
+				'thumbnail' => array(
+					'crop' => array(160,160),
+				),
+			),
+		),
 
 		'widgetCollapse'=>array(
 			'class'=>'WidgetCollapse',

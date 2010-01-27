@@ -1,7 +1,7 @@
 <?php
   // @version $Id$
 
-class WidgetCollapse extends CComponent
+class WidgetCollapse extends CApplicationComponent
 {
 	public $enable;
 
@@ -11,6 +11,7 @@ class WidgetCollapse extends CComponent
 
 	public function init()
 	{
+		parent::init();
 		if ($this->enable) {
 			$cs=Yii::app()->clientScript;
 

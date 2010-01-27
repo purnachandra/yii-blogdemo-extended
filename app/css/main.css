@@ -46,6 +46,12 @@ body
 	padding: 10px 20px;
 	font-size: 200%;
 }
+#rss
+{
+        position: absolute;
+        top: 24px;
+        right: 24px;
+}
 
 #mainmenu
 {
