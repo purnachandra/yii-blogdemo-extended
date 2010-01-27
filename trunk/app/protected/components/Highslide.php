@@ -1,7 +1,7 @@
 <?php
   // @version $Id$
 
-class Highslide extends CComponent
+class Highslide extends CApplicationComponent
 {
 	public $enable;
 
@@ -11,6 +11,7 @@ class Highslide extends CComponent
 
 	public function init()
 	{
+		parent::init();
 		if ($this->enable) {
 		// js
 			$cs=Yii::app()->clientScript;

@@ -1,4 +1,7 @@
 <?php
+Yii::import('application.vendors.*');
+require_once('Zend/Feed.php');
+require_once('Zend/Feed/Rss.php');
 
 class SiteController extends Controller
 {
@@ -82,5 +85,34 @@ class SiteController extends Controller
 	{
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
+	}
+
+	public function actionFeed()
+	{
+		$req = new CHttpRequest;
+		// retrieve the latest posts
+		$posts=Post::model()->findAll(array(
+			'order'=>'create_time DESC',
+			'limit'=> Yii::app()->params['postsPerFeedCount'],
+		));
+		// convert to the format needed by Zend_Feed
+		$entries=array();
+		foreach($posts as $post)
+		{
+			$entries[]=array(
+				'title'=>CHtml::encode($post->title),
+				'link'=>CHtml::encode($req->getHostInfo().$post->url),
+				'description'=>$post->content,
+				'lastUpdate'=>$post->create_time,
+			);
+		}
+		// generate and render RSS feed
+		$feed=Zend_Feed::importArray(array(
+			'title'   => 'My Post Feed',
+			'link'    => $this->createUrl(''),
+			'charset' => 'UTF-8',
+			'entries' => $entries,      
+		), 'rss');
+		$feed->send();
 	}
 }
