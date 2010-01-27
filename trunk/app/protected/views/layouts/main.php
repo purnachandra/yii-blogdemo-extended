@@ -28,8 +28,9 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-		<div id="rss"><?php echo CHtml::link(CHtml::image(Yii::app()->createUrl('/images/feed.gif')),'rss.xml'); ?></div>
+		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?>
+			<div id="rss"><?php echo CHtml::link(CHtml::image(Yii::app()->createUrl('/images/feed.gif')),'rss.xml'); ?></div>
+		</div>
 	</div><!-- header -->
 
 	<div id="mainmenu">

@@ -43,14 +43,15 @@ body
 
 #logo
 {
+	position: relative;
 	padding: 10px 20px;
 	font-size: 200%;
 }
 #rss
 {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: 16px;
+        right: 14px;
 }
 
 #mainmenu
