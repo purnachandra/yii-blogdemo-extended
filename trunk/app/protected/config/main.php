@@ -52,7 +52,7 @@ return array(
 			'errorAction'=>'site/error',
 		),
 		'urlManager'=>array(
-			'showScriptName'=>false,
+			'showScriptName'=>false, // enable this when .htaccess takes effect on the host
 			'urlFormat'=>'path',
 			'rules'=>array(
 				'post/<id:\d+>/<title:.*?>'=>'post/view',
