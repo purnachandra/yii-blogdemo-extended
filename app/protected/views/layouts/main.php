@@ -23,7 +23,7 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?>
-			<div id="rss"><?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl.'/systemImages/feed.gif'),Yii::app()->request->baseUrl.'/rss.xml'); ?></div>
+			<div id="rss"><?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl.'/systemImages/feed.gif'),array('site/feed')); ?></div>
 		</div>
 	</div><!-- header -->
 
