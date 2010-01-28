@@ -50,7 +50,6 @@ class Calendar extends Portlet
     if (isset($locale) && $locale == 'ja_JP.utf8') $len = 3;
     else $len = 2;
 	  	
-    //    $url = CHtml::normalizeUrl(array('post/PostedInMonth', 'time'=>$firstDay, 'pnc'=>'c'));
     $this->render('calendar', array('year'=>$year, 'month'=>$month, 'days'=>$days, 'len'=>$len, 'url'=>'', 'pnc'=>$pnc));
   }
 
