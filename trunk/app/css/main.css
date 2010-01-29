@@ -46,6 +46,13 @@ body
 	position: relative;
 	padding: 10px 20px;
 	font-size: 200%;
+	color: #c9e0ed;
+	text-decoration: none;
+}
+#logo a
+{
+	color: #555555;
+	text-decoration: none;
 }
 #logo #rss
 {
