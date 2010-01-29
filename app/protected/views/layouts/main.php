@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
+	<link title="RSS Feed" rel="alternate" type="application/rss+xml" href="<?php echo CHtml::normalizeUrl(array('post/feed')); ?>" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -22,7 +23,7 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?>
+		<div id="logo"><?php echo CHtml::link(CHtml::encode(Yii::app()->name),array('post/index')); ?>
 			<div id="rss"><?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl.'/systemImages/feed.gif'),array('site/feed')); ?></div>
 		</div>
 	</div><!-- header -->
