@@ -235,6 +235,10 @@ div.breadcrumbs span
 	padding: 2px 0 4px 0px;
 }
 
+.portlet-content .row input[type=text]
+{
+	width: 98%;
+}
 .post
 {
 	margin: 0 0 20px;
