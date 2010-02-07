@@ -21,8 +21,8 @@
 	 var currentTime = new Date();
 	 var s = currentTime.getSeconds();
 	 var m = currentTime.getMinutes();
-	 var h = 5*currentTime.getHours()%12+m/12;
-	 $('.hourHand').css('background-position', -Math.floor(h)*104+'px 0px');
+	 var h = Math.floor(5*(currentTime.getHours()%12)+m/12);
+	 $('.hourHand').css('background-position', -h*104+'px 0px');
 	 $('.minuteHand').css('background-position', -m*104+'px -104px');
 	 $('.secondHand').css('background-position', -s*104+'px -208px');
        }
