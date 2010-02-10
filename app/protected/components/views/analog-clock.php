@@ -1,14 +1,14 @@
 <center>
-<!-- $Id: clock.php 71 2010-02-06 15:32:34Z mocapapa@g.pugpug.org $ -->
+<!-- $Id: clock.php 72 2010-02-07 01:20:18Z mocapapa@g.pugpug.org $ -->
 <?php
   $clockOffsetX = 35;
   $clockOffsetY = 1;
 ?>
 <div style="position: relative;">
-  <img src="<?php echo Yii::app()->request->baseUrl;?>/systemImages/clock.png">
-    <div class="hourHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
-    <div class="minuteHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
-    <div class="secondHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
+  <img src="<?php echo Yii::app()->request->baseUrl;?>/systemImages/analog-clock-base.png">
+    <div class="hourHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/analog-clock-hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
+    <div class="minuteHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/analog-clock-hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
+    <div class="secondHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/analog-clock-hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
 </div>
 <script type="text/javascript">
    /*<![CDATA[*/
@@ -29,8 +29,4 @@
      });
 /*]]>*/
 </script>
-<!--
-<embed src="http://www.clocklink.com/clocks/0001-gray.swf?TimeZone=JST&Place=&"
-  width="140" height="140" wmode="transparent" type="application/x-shockwave-flash">
--->
 </center>
