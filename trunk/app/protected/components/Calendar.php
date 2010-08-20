@@ -1,6 +1,5 @@
 <?php
   // @version $Id$
-
 class Calendar extends CPortlet
 {
   public $title='Calendar';
