@@ -1,6 +1,6 @@
 <?php
 
-class UserMenu extends Portlet
+class UserMenu extends CPortlet
 {
 	public function init()
 	{

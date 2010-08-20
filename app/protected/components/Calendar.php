@@ -1,7 +1,7 @@
 <?php
   // @version $Id$
 
-class Calendar extends Portlet
+class Calendar extends CPortlet
 {
   public $title='Calendar';
 

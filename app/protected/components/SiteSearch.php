@@ -1,6 +1,6 @@
 <?php
 
-class SiteSearch extends Portlet {
+class SiteSearch extends CPortlet {
 
   public $title='Site Search';
 

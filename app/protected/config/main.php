@@ -17,6 +17,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.extensions.*',
+		'zii.widgets.*',
 	),
 
 	'defaultController'=>'post',

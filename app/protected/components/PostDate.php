@@ -1,14 +1,14 @@
 <?php
   // @version $Id$
 
-class PostDate extends Portlet {
+class PostDate extends CPortlet {
   public $cssClass='postdate';
   public $ct;
  
   protected function renderContent()
   {
-    echo "<font size=\"3\">\n";
+    echo "<center><font size=\"3\">\n";
     print $this->ct;
-    echo "</font>\n";
+    echo "</font></center>\n";
   }
 }

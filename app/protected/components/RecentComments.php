@@ -1,6 +1,6 @@
 <?php
 
-class RecentComments extends Portlet
+class RecentComments extends CPortlet
 {
 	public $title='Recent Comments';
 	public $maxComments=10;

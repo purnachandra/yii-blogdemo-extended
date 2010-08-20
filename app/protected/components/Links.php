@@ -1,7 +1,7 @@
 <?php
   // @version $Id$
 
-class Links extends Portlet
+class Links extends CPortlet
 {
   public $title='Links';
 
