@@ -1,7 +1,7 @@
 <?php
   // @version $Id$
 
-class RecentPosts extends Portlet
+class RecentPosts extends CPortlet
 {
   public $title='Recent Posts';
   public $maxPosts=10;

@@ -1,7 +1,7 @@
 <?php
   // @version $Id$
 
-class MonthlyArchives extends Portlet
+class MonthlyArchives extends CPortlet
 {
   public $title='Monthly Archives';
   public $maxItems=10;

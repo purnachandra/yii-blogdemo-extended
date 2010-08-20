@@ -1,6 +1,6 @@
 <?php
 
-class TagCloud extends Portlet
+class TagCloud extends CPortlet
 {
 	public $title='Tags';
 	public $maxTags=20;
